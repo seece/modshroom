@@ -1,0 +1,37 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+*.exe
+
+# Visual Studio cruft
+Debug/
+Release/
+bin/
+obj/
+ipch/
+*.log
+*.tlog
+*.idb
+*.pdb
+*.suo
+*.ncb
+*.sbr
+*.user
+*.sdf
+*.opensdf
+*.filters
+
+# Other stuff
+/modshroom/test
+/modshroom/Debug
+/public

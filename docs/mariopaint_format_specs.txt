@@ -1,0 +1,28 @@
+some words on mario paint formats
+13.8.2012
+
+written by cce
+thanks to Strobe for some guidance
+
+
+Save a savestate with ZSNES version V143. V151 should work too, and probably other versions.
+
+First .ZSH is converted to .SHO with Strobe's ShroomTool. It basically just strips away stuff from the savestate and does no parsing.
+All notes are written sequentially to the file after headers. Each row has three notes, and each note is made up of two bytes. The first byte is pitch and the second one is instrument number. 
+
+Valid pitch values are between B3 (0x01) and B4 (0x0D).
+Valid values for instruments are between 0x02 and 0x0E.
+
+Empty note has a pitch of 0xFF and instrument number 0xDF. Songs can't be more than 96 rows long (song data must fit in 576 bytes).
+
+Raw ZSH format:
+
+The song data begins from offset 0x15F7 and its length is 576 bytes.
+
+Song tempo is at 0x183B, values between 0x00 and 0x9F.
+Song length (two bytes) is stored just after the notedata, at offset 0x1837
+Looping is a single byte flag at 0x1839. When looping is enabled, its value is 1, otherwise 0.
+
+Other notes:
+The SHO format does not support looping or song length, even though the original Mario Paint cart has these features. Time for SHO2 maybe?
+
